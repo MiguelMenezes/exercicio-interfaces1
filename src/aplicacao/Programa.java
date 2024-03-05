@@ -33,17 +33,16 @@ public class Programa {
 		System.out.print("Preço por dia R$: ");
 		double precoDia = sc.nextDouble();
 
-		ServicoAluguelCarro servicoAluguelCarro = new ServicoAluguelCarro(precoDia, precoHora,
+		ServicoAluguelCarro servicoAluguelCarro = new ServicoAluguelCarro(precoHora, precoDia,
 				new ServicoImpostoBrasil());
-		
+
 		servicoAluguelCarro.processarFatura(aluguelCarro);
-		
+
 		System.out.println("");
 		System.out.println("FATURA: ");
-		System.out.println("Pagamento básico : R$"+ aluguelCarro.getFatura().getPagamentoBasico());
+		System.out.println("Pagamento básico : R$" + aluguelCarro.getFatura().getPagamentoBasico());
 		System.out.println("Imposto: R$" + aluguelCarro.getFatura().getImposto());
 		System.out.println("Pagamento total: R$" + aluguelCarro.getFatura().getPagamentoTotal());
-		
 
 		sc.close();
 	}

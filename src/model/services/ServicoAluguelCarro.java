@@ -4,18 +4,18 @@ import java.time.Duration;
 
 import model.entidades.AluguelCarro;
 import model.entidades.Fatura;
-
+	
 public class ServicoAluguelCarro {
 
 	private Double precoDia;
 	private Double precoHora;
 
-	private ServicoImpostoBrasil impostoBrasil;
+	private ImpostoServico impostoServico;
 
-	public ServicoAluguelCarro(Double precoDia, Double precoHora, ServicoImpostoBrasil impostoBrasil) {
+	public ServicoAluguelCarro(Double precoDia, Double precoHora, ImpostoServico impostoServico) {
 		this.precoDia = precoDia;
 		this.precoHora = precoHora;
-		this.impostoBrasil = impostoBrasil;
+		this.impostoServico = impostoServico;
 	}
 
 	public void processarFatura(AluguelCarro aluguelCarro) {
@@ -35,7 +35,7 @@ public class ServicoAluguelCarro {
 
 		}
 
-		double imposto = impostoBrasil.imposto(pagamentoBasico);
+		double imposto = impostoServico.imposto(pagamentoBasico);
 		aluguelCarro.setFatura(new Fatura(pagamentoBasico, imposto));
 
 	}
